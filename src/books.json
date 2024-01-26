@@ -1,0 +1,114 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "title": "Eloquent JavaScript",
+            "author": "Marijn Haverbeke",
+            "year": 2014,
+            "publisher": "No Starch Press",
+            "pages": 472,
+            "image_url": "https://i.ibb.co/WFPMG36/R.png",
+            "price": "$21.99",
+            "rating": 4.5
+        },
+        {
+            "id": 2,
+            "title": "Learning JavaScript Design Patterns",
+            "author": "Addy Osmani",
+            "year": 2012,
+            "publisher": "O'Reilly Media",
+            "pages": 254,
+            "image_url": "https://i.ibb.co/dPYQc63/OIP.jpg",
+            "price": "$19.99",
+            "rating": 4
+        },
+        {
+            "id": 3,
+            "title": "Speaking JavaScript",
+            "author": "Axel Rauschmayer",
+            "year": 2014,
+            "publisher": "O'Reilly Media",
+            "pages": 460,
+            "image_url": "https://i.ibb.co/LPSwV1C/orm-front-cover.jpg",
+            "price": "$24.99",
+            "rating": 4.2
+        },
+        {
+            "id": 4,
+            "title": "Programming JavaScript Applications",
+            "author": "Eric Elliott",
+            "year": 2014,
+            "publisher": "O'Reilly Media",
+            "pages": 254,
+            "image_url": "https://i.ibb.co/Y0g13fg/61-Qr9qy-Uyu-S-AC-UF1000-1000-QL80.jpg",
+            "price": "$19.99",
+            "rating": 4.1
+        },
+        {
+            "id": 5,
+            "title": "Python for Data Analysis",
+            "author": "Wes McKinney",
+            "year": 2012,
+            "publisher": "O'Reilly Media",
+            "pages": 470,
+            "image_url": "https://i.ibb.co/jMGbVCF/91lrhlw-Xc-L-AC-UF1000-1000-QL80.jpg",
+            "price": "$29.99",
+            "rating": 4.4
+        },
+        {
+            "id": 6,
+            "title": "Fluent Python",
+            "author": "Luciano Ramalho",
+            "year": 2015,
+            "publisher": "O'Reilly Media",
+            "pages": 792,
+            "image_url": "https://i.ibb.co/pz0MHXM/81-Ovsz-BEdh-L-AC-UF894-1000-QL80.jpg",
+            "price": "$39.99",
+            "rating": 4.3
+        },
+        {
+            "id": 7,
+            "title": "Python Crash Course",
+            "author": "Eric Matthes",
+            "year": 2015,
+            "publisher": "No Starch Press",
+            "pages": 560,
+            "image_url": "https://i.ibb.co/sRcVjGD/e1a7cdd1f87942ff3e4634e1255a60fe.jpg",
+            "price": "$24.99",
+            "rating": 4.5
+        },
+        {
+            "id": 8,
+            "title": "Automate the Boring Stuff with Python",
+            "author": "Al Sweigart",
+            "year": 2015,
+            "publisher": "No Starch Press",
+            "pages": 504,
+            "image_url": "https://i.ibb.co/3m9DT1q/715-PNi5-Wa2-L-SL1500.jpg",
+            "price": "$29.99",
+            "rating": 4.6
+        },
+        {
+            "id": 9,
+            "title": "The Art of Computer Programming",
+            "author": "Donald E. Knuth",
+            "year": 2011,
+            "publisher": "Addison-Wesley Professional",
+            "pages": 3168,
+            "image_url": "https://i.ibb.co/3sNBHx7/Art-Of-Computer-Programming-svg.png",
+            "price": "$199.99",
+            "rating": 4.8
+        },
+        {
+            "id": 10,
+            "title": "Code Complete",
+            "author": "Steve McConnell",
+            "year": 2004,
+            "publisher": "Microsoft Press",
+            "pages": 960,
+            "image_url": "https://i.ibb.co/VQS2NBx/61-Gzaz-Um-Ky-L-AC-UF1000-1000-QL80.jpg",
+            "price": "$49.99",
+            "rating": 4.7
+        }
+    ]
+}
