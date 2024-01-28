@@ -6,6 +6,7 @@ export default function BookFinder() {
   const AllBooksData = booksData.books;
   const [allBooks, setAllBooks] = useState(AllBooksData);
   const [selectOption, setSelectOption] = useState("");
+  const [isResetvisible, setResetVisible] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = (event) => {
@@ -15,22 +16,17 @@ export default function BookFinder() {
     );
     setAllBooks([...filterd]);
     setSearchTerm("");
+    setResetVisible(true);
   };
+  const initialBooksData = AllBooksData;
 
-  // const sortedData = () => {
-  //   const newOrderData = [...allBooks];
-  //   if (selectOption === "name_asc") {
-  //     return newOrderData.sort((a, b) => a.title.localeCompare(b.title));
-  //   } else if (selectOption === "name_desc") {
-  //     return newOrderData.sort((a, b) => b.title.localeCompare(a.title));
-  //   } else if (selectOption === "year_desc") {
-  //     return newOrderData.sort((a, b) => b.year - a.year);
-  //   } else if (selectOption === "year_asc") {
-  //     return newOrderData.sort((a, b) => a.year - b.year);
-  //   } else {
-  //     return newOrderData;
-  //   }
-  // };
+  const handleReset = () => {
+    // Reset allBooks to the initial data
+    setAllBooks([...initialBooksData]);
+
+    // Optionally, you can hide the reset button after resetting
+    setResetVisible(false);
+  };
 
   const handleSelectChange = (event) => {
     event.preventDefault();
@@ -115,8 +111,11 @@ export default function BookFinder() {
                       <span>Search</span>
                     </button>
                     <button
+                      onClick={handleReset}
                       type="submit"
-                      className="mr-1.5 flex items-center space-x-1.5 rounded-md rounded-e-lg bg-[#1C4336] px-4 py-2.5 text-sm text-white hidden"
+                      className={`mr-1.5 flex items-center space-x-1.5 rounded-md rounded-e-lg bg-[#1C4336] px-4 py-2.5 text-sm text-white ${
+                        isResetvisible ? "" : "hidden"
+                      }`}
                     >
                       <svg
                         className="h-[14px] w-[14px]"
