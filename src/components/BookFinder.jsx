@@ -14,6 +14,7 @@ export default function BookFinder() {
       book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setAllBooks([...filterd]);
+    setSearchTerm("");
   };
 
   // const sortedData = () => {
@@ -58,6 +59,15 @@ export default function BookFinder() {
         // Handle default case (if any)
         break;
     }
+  };
+  const handleFav = (bookId) => {
+    console.log("clicked", bookId);
+    const bookIndex = allBooks.findIndex((book) => book.id === bookId);
+    console.log(bookIndex);
+    const newBooks = [...allBooks];
+    console.log(newBooks);
+    newBooks[bookIndex].isFev = !newBooks[bookIndex].isFev;
+    setAllBooks(newBooks);
   };
 
   return (
@@ -104,6 +114,27 @@ export default function BookFinder() {
                       </svg>
                       <span>Search</span>
                     </button>
+                    <button
+                      type="submit"
+                      className="mr-1.5 flex items-center space-x-1.5 rounded-md rounded-e-lg bg-[#1C4336] px-4 py-2.5 text-sm text-white hidden"
+                    >
+                      <svg
+                        className="h-[14px] w-[14px]"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        />
+                      </svg>
+                      <span>Reset</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -126,7 +157,7 @@ export default function BookFinder() {
           </div>
         </div>
       </header>
-      <BooksList books={allBooks}></BooksList>
+      <BooksList books={allBooks} onFav={handleFav}></BooksList>
     </main>
   );
 }
