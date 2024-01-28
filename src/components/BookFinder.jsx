@@ -1,9 +1,65 @@
-import books from "../books.json";
+import { useState } from "react";
+import booksData from "../books.json";
 import BooksList from "./BooksList";
 
 export default function BookFinder() {
-  const allBooks = books;
-  console.log(allBooks);
+  const AllBooksData = booksData.books;
+  const [allBooks, setAllBooks] = useState(AllBooksData);
+  const [selectOption, setSelectOption] = useState("");
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const filterd = allBooks.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setAllBooks([...filterd]);
+  };
+
+  // const sortedData = () => {
+  //   const newOrderData = [...allBooks];
+  //   if (selectOption === "name_asc") {
+  //     return newOrderData.sort((a, b) => a.title.localeCompare(b.title));
+  //   } else if (selectOption === "name_desc") {
+  //     return newOrderData.sort((a, b) => b.title.localeCompare(a.title));
+  //   } else if (selectOption === "year_desc") {
+  //     return newOrderData.sort((a, b) => b.year - a.year);
+  //   } else if (selectOption === "year_asc") {
+  //     return newOrderData.sort((a, b) => a.year - b.year);
+  //   } else {
+  //     return newOrderData;
+  //   }
+  // };
+
+  const handleSelectChange = (event) => {
+    event.preventDefault();
+    const newSelectOption = event.target.value;
+    setSelectOption(newSelectOption);
+    console.log(newSelectOption);
+
+    switch (newSelectOption) {
+      case "name_asc":
+        setAllBooks(
+          [...allBooks].sort((a, b) => a.title.localeCompare(b.title))
+        );
+        break;
+      case "name_desc":
+        setAllBooks(
+          [...allBooks].sort((a, b) => b.title.localeCompare(a.title))
+        );
+        break;
+      case "year_asc":
+        setAllBooks([...allBooks].sort((a, b) => a.year - b.year));
+        break;
+      case "year_desc":
+        setAllBooks([...allBooks].sort((a, b) => b.year - a.year));
+        break;
+      default:
+        // Handle default case (if any)
+        break;
+    }
+  };
+
   return (
     <main className="my-10 lg:my-14">
       <header className="mb-8 lg:mb-10 mx-auto max-w-7xl">
@@ -13,11 +69,14 @@ export default function BookFinder() {
             <h2 className="mb-6 font-['Playfair_Display'] text-3xl font-bold lg:text-4xl">
               Trending Books of the Year
             </h2>
-            <form>
+            <form onSubmit={handleSearch}>
               <div className="flex">
                 <div className="relative w-full overflow-hidden rounded-lg border-2 border-[#1C4336] text-[#1C4336] md:min-w-[380px] lg:min-w-[440px]">
                   <input
+                    name="search"
                     type="search"
+                    value={searchTerm}
+                    onChange={() => setSearchTerm(event.target.value)}
                     id="search-dropdown"
                     className="z-20 block w-full bg-white px-4 py-2.5 pr-10 text-[#1C4336] placeholder:text-[#1C4336] focus:outline-none"
                     placeholder="Search Book"
@@ -55,6 +114,8 @@ export default function BookFinder() {
               className="cursor-pointer rounded-md border px-4 py-2 text-center text-gray-600"
               name="sortBy"
               id="sortBy"
+              value={selectOption}
+              onChange={handleSelectChange}
             >
               <option value="">Sort</option>
               <option value="name_asc">Name (A-Z)</option>

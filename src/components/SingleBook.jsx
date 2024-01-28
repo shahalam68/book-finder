@@ -1,23 +1,42 @@
+import StarIcon from "@mui/icons-material/Star";
+import Rating from "@mui/material/Rating";
 export default function SingleBook({ book }) {
-  const { id, title, author, year, publisher, pages, image_url, price } = book;
+  const {
+    id,
+    title,
+    author,
+    year,
+    publisher,
+    pages,
+    image_url,
+    price,
+    rating,
+  } = book;
   return (
     <div className="space-y-3 ">
       <div className="flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4">
         <img className="max-w-[144px]" src={image_url} alt="book name" />
       </div>
       <div className="space-y-3">
-        <h4 className="text-lg font-bold lg:text-xl">{title}</h4>
+        <h4 className="text-lg font-bold lg:text-xl">
+          {title}({year})
+        </h4>
         <p className="text-xs lg:text-sm">
           By : <span>{author}</span>
         </p>
         <div className="flex items-center justify-between">
           <h4 className="text-lg font-bold lg:text-xl">{price}</h4>
           <div className="flex items-center space-x-1">
-            <img src="./assets/star.svg" />
-            <img src="./assets/star.svg" />
-            <img src="./assets/star.svg" />
-            <img src="./assets/star.svg" />
-            <span className="text-xs lg:text-sm">(4 Star)</span>
+            <Rating
+              name="read-only"
+              value={rating}
+              precision={0.1}
+              emptyIcon={
+                <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+              }
+              readOnly
+            />
+            <span className="text-xs lg:text-sm">({rating} Star)</span>
           </div>
         </div>
 
